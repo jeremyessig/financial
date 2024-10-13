@@ -1,0 +1,13 @@
+<div class="modal fade" id="popupTransactionForm" tabindex="-1" aria-labelledby="popupTransactionFormLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header px-4">
+        <h1 class="modal-title fs-5" id="popupTransactionFormLabel">Nouvelle transaction</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body px-5 pb-4">
+        {{ component('TransactionForm', {form:form}) }}
+      </div>
+    </div>
+  </div>
+</div>

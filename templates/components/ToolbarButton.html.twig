@@ -1,0 +1,9 @@
+<div{{ attributes }} class="d-flex m-0 p-0">
+    {# {% set toggle = toggle is defined ? %} #}
+    <button type="button" 
+        {{ toggle is defined ? 'data-bs-toggle=' ~ toggle }} 
+        {{ toggle is defined ? 'data-bs-target=' ~ '#' ~ target }} 
+        class="btn btn-outline-{{ color is defined ? color : 'primary' }} btn-sm d-flex align-items-center justify-content-center gap-2">
+        {% block content %}{% endblock %}
+    </button>
+</div>

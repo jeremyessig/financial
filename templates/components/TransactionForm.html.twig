@@ -1,0 +1,13 @@
+<div{{ attributes }}>
+    {{ form_start(form, {
+        attr: {
+            'data-action': 'live#action:prevent',
+            'data-live-action-param': 'save'
+            }
+    }) }}
+        {{ form_widget(form) }}
+        <div class="d-flex justify-content-center align-items-center mt-4">
+            <button class="btn btn-primary">{{ button_label|default('Sauvegarder') }}</button>
+        </div>
+    {{ form_end(form) }}
+</div>

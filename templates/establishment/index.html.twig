@@ -1,0 +1,49 @@
+{% extends 'layout/main.html.twig' %}
+
+{% block title %}Establishment index{% endblock %}
+
+{% block main %}
+    
+    <twig:Toolbar>
+        <button class="btn btn-outline-primary btn-sm d-flex align-items-center justify-content-center gap-2">
+            <twig:ux:icon name="bi:file-earmark-plus" />
+            <span>Nouveau</span>
+        </button>    
+    </twig:Toolbar>
+
+    <twig:Wrapper>
+        <twig:block name="body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>ColorCss</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for establishment in establishments %}
+                    <tr>
+                        <td>{{ establishment.id }}</td>
+                        <td>{{ establishment.name }}</td>
+                        <td>{{ establishment.colorCss }}</td>
+                        <td>
+                            <a href="{{ path('app_establishment_show', {'id': establishment.id}) }}">show</a>
+                            <a href="{{ path('app_establishment_edit', {'id': establishment.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </twig:block>
+    </twig:Wrapper>
+
+
+    <a href="{{ path('app_establishment_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,63 @@
+:root{
+    --main-height: calc(100vh - 56px);
+}
+
+body {
+    /* background-color: skyblue; */
+}
+
+main {
+    height: var(--main-height) !important;
+    height: -webkit-fill-available;
+    max-height: var(--main-height);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#sidebar {
+    height: var(--main-height) !important;
+    max-height: var(--main-height);
+    border-right: 1px solid #c7c7c7;
+}
+
+.card{
+    border: none;
+    /* box-shadow: 0 0 6px 2px #00000014; */
+    box-shadow: rgba(0, 0, 0, 0.12 ) 0px 0px 2px, rgba(0, 0, 0, 0.14) 0px 2px 4px;
+}
+
+.h-0{
+    height: 0;
+}
+
+.btn-close{
+    border-radius: 100%;
+    background-color: #cdcdcd;
+}
+.btn-close:hover{
+    background-color: #ffc8c8;
+}
+
+.text-bg-blue {
+    background-color: #d1e2ff;
+    color: rgb(9 0 93);
+    font-weight: 400;
+}
+
+.text-bg-red {
+    background-color: #ffd4e0;
+    color: rgb(37, 0, 0);
+    font-weight: 400;
+}
+
+.text-bg-cyan {
+    background-color: #c4ecff;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+}
+
+.text-bg-yellow {
+    background-color: #ffeab6;
+    color: black;
+    font-weight: 400;
+}
