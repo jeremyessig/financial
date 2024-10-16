@@ -22,8 +22,11 @@ final class TransactionController extends AbstractController
         $transaction->setDate(new DateTimeImmutable());
         $form = $this->createForm(TransactionType::class, $transaction);
 
+        $pagination = $transactionRepository->findAllPaginated($request->query->getInt('page', 1));
+
         return $this->render('transaction/index.html.twig', [
-            'transactions' => $transactionRepository->findAllPaginated($request->query->getInt('page', 1)),
+            'transactions' => $pagination,
+            'total_item_Count' => $pagination->getTotalItemCount(),
             'form' => $form,
         ]);
     }

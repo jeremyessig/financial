@@ -61,3 +61,7 @@ main {
     color: black;
     font-weight: 400;
 }
+
+.fit-content{
+    min-width: fit-content
+}

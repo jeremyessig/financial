@@ -21,9 +21,10 @@ class TransactionRepository extends ServiceEntityRepository
     public function findAllPaginated($page): PaginationInterface
     {
         $data = $this->createQueryBuilder('t')
-            ->orderBy('t.date', 'DESC')
-            ->getQuery()
-            ->getResult();
+            ->leftJoin('t.establishment', 'e')
+            ->leftJoin('t.category', 'c')
+            ->select('t', 'e', 'c')
+            ->getQuery();
         return $this->paginator->paginate($data, $page, 25);
     }
 
