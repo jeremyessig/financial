@@ -19,6 +19,7 @@ final class EstablishmentController extends AbstractController
     {
         return $this->render('establishment/index.html.twig', [
             'establishments' => $establishmentRepository->findAll(),
+            'nav' => 'establishment',
         ]);
     }
 
@@ -39,6 +40,7 @@ final class EstablishmentController extends AbstractController
         return $this->render('establishment/new.html.twig', [
             'establishment' => $establishment,
             'form' => $form,
+            'nav' => 'establishment',
         ]);
     }
 
@@ -47,6 +49,7 @@ final class EstablishmentController extends AbstractController
     {
         return $this->render('establishment/show.html.twig', [
             'establishment' => $establishment,
+            'nav' => 'establishment',
         ]);
     }
 
@@ -65,13 +68,14 @@ final class EstablishmentController extends AbstractController
         return $this->render('establishment/edit.html.twig', [
             'establishment' => $establishment,
             'form' => $form,
+            'nav' => 'establishment',
         ]);
     }
 
     #[Route('/{id}', name: 'app_establishment_delete', methods: ['POST'])]
     public function delete(Request $request, Establishment $establishment, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$establishment->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $establishment->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($establishment);
             $entityManager->flush();
         }

@@ -35,10 +35,12 @@ class TransactionType extends AbstractType
             ->add('establishment', EntityType::class, [
                 'class' => Establishment::class,
                 'choice_label' => 'name',
+                'placeholder' => 'Choisissez un établissement bancaire',
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
+                'placeholder' => 'Choisissez une catégorie',
             ])
         ;
     }

@@ -15,7 +15,8 @@ class HomeController extends AbstractController
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'transactions' => $transactionRepository->findAll()
+            'transactions' => $transactionRepository->findAll(),
+            'nav' => 'home',
         ]);
     }
 }

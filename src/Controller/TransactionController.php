@@ -28,6 +28,7 @@ final class TransactionController extends AbstractController
             'transactions' => $pagination,
             'total_item_Count' => $pagination->getTotalItemCount(),
             'form' => $form,
+            'nav' => 'transaction',
         ]);
     }
 
@@ -48,6 +49,7 @@ final class TransactionController extends AbstractController
         return $this->render('transaction/new.html.twig', [
             'transaction' => $transaction,
             'form' => $form,
+            'nav' => 'transaction',
         ]);
     }
 
@@ -56,6 +58,7 @@ final class TransactionController extends AbstractController
     {
         return $this->render('transaction/show.html.twig', [
             'transaction' => $transaction,
+            'nav' => 'transaction',
         ]);
     }
 
@@ -74,6 +77,7 @@ final class TransactionController extends AbstractController
         return $this->render('transaction/edit.html.twig', [
             'transaction' => $transaction,
             'form' => $form,
+            'nav' => 'transaction',
         ]);
     }
 
