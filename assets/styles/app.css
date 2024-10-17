@@ -65,3 +65,24 @@ main {
 .fit-content{
     min-width: fit-content
 }
+
+.pagination{
+    margin-bottom: 0;
+}
+
+.btn-round{
+    font-size: 1.2rem;
+    width: 32px;
+    background-color: rgb(199 199 199 / 37%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4b4b4b;
+    height: 32px;
+    border-radius: 100%;
+    transition: all 0.1s ease-in-out;
+}
+.btn-round:hover{
+    /* background-color: #f1f1f1; */
+    transform: scale(1.1);
+}
