@@ -18,14 +18,14 @@ class TransactionRepository extends ServiceEntityRepository
         parent::__construct($registry, Transaction::class);
     }
 
-    public function findAllPaginated($page): PaginationInterface
+    public function findAllPaginated($page, $limit = 25): PaginationInterface
     {
         $data = $this->createQueryBuilder('t')
             ->leftJoin('t.establishment', 'e')
             ->leftJoin('t.category', 'c')
             ->select('t', 'e', 'c')
             ->getQuery();
-        return $this->paginator->paginate($data, $page, 25);
+        return $this->paginator->paginate($data, $page, $limit);
     }
 
     //    /**

@@ -10,25 +10,26 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/transaction')]
 final class TransactionController extends AbstractController
 {
     #[Route(name: 'app_transaction_index', methods: ['GET'])]
-    public function index(Request $request, TransactionRepository $transactionRepository): Response
+    public function index(Request $request, TransactionRepository $transactionRepository, #[MapQueryParameter('page')] int $page = 1, #[MapQueryParameter('limit')] int $limit = 25): Response
     {
         $transaction = new Transaction();
         $transaction->setDate(new DateTimeImmutable());
         $form = $this->createForm(TransactionType::class, $transaction);
 
-        $pagination = $transactionRepository->findAllPaginated($request->query->getInt('page', 1));
-
+        $pagination = $transactionRepository->findAllPaginated($page, $limit);
         return $this->render('transaction/index.html.twig', [
             'transactions' => $pagination,
             'total_item_Count' => $pagination->getTotalItemCount(),
             'form' => $form,
             'nav' => 'transaction',
+            'limit' => $limit,
         ]);
     }
 

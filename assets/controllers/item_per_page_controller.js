@@ -14,8 +14,16 @@ export default class extends Controller {
     connect() {
         //this.element.textContent = 'Item par page controleur';
     }
-
+    
     setValue() {
+        console.log(window.location.href)
         console.log(this.sourceTarget.value)
+        
+        let searchParams = new URLSearchParams(window.location.search);
+        searchParams.set('limit', this.sourceTarget.value)
+        const baseUrl = url => url.indexOf('?') === -1 ? url : url.slice(0, url.indexOf('?'));
+
+        //console.log(baseUrl(window.location.href))
+        document.location.assign(baseUrl(window.location.href) + '?' + searchParams.toString());
   }
 }
